@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'jetty'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://maven.java.net/content/repositories/snapshots/'
+    }
+}
+
+List compileLibraries = ['com.sun.jersey:jersey-server:1.14',
+                         'com.sun.jersey:jersey-grizzly2:1.14',
+                         'com.sun.jersey:jersey-core:1.14',
+                         'javax.ws.rs:jsr311-api:1.1.1']
+
+dependencies {
+    compile(compileLibraries)
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+}
